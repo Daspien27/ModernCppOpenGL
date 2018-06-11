@@ -7,7 +7,7 @@
 class Application;
 
 template <typename CommandName>
-class ApplicationCommand : ICommand
+class ApplicationCommand : public ICommand
 {
 public:
    
@@ -25,7 +25,7 @@ public:
 
 protected:
 
-   using Base = ApplicationCommand<CommandName>
+   using Base = ApplicationCommand<CommandName>;
    Application& this_command_app;
 };
 

@@ -130,7 +130,11 @@
   <ItemGroup>
     <ClCompile Include="application.cpp" />
     <ClCompile Include="ApplicationCommands.cpp" />
-    <ClCompile Include="glad.c" />
+    <ClCompile Include="ApplicationInputHandler.cpp" />
+    <ClCompile Include="glad.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="ICommand.cpp" />
     <ClCompile Include="inputhandler.cpp" />
     <ClCompile Include="KeyboardHandler.cpp" />
@@ -144,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="application.h" />
     <ClInclude Include="ApplicationCommands.h" />
+    <ClInclude Include="ApplicationInputHandler.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="inputhandler.h" />
     <ClInclude Include="KeyboardHandler.h" />

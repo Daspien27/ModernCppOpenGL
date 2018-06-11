@@ -1,24 +1,27 @@
 #pragma once
 
+//forward declarations
 class ICommand;
 
-struct KeyBinding
+struct KeyActionHistory
 {
    int last_recorded_status = GLFW_RELEASE;
    int current_status = GLFW_RELEASE;
-   std::unique_ptr<ICommand> binded_command = nullptr;
 };
 
 class KeyboardHandler
 {
 public:
+   using KeyboardStatus = std::unordered_map<int, KeyActionHistory>;
+   
    KeyboardHandler ();
    ~KeyboardHandler ();
 
    void ProcessKey (int key, int action);
+   const KeyboardStatus& GetKeyboardStatus () const;
 
 protected:
-   std::unordered_map<int, std::unique_ptr<KeyBinding>> key_status = std::unordered_map<int, std::unique_ptr<KeyBinding>> (GLFW_KEY_LAST);
+    KeyboardStatus key_status = KeyboardStatus (GLFW_KEY_LAST);
 
 };
 

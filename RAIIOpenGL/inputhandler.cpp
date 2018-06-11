@@ -32,5 +32,5 @@ void InputHandler::ProcessKeyboardInput (int key, int action)
 
 void InputHandler::HandleInputs (Application & app, Renderer & renderer, State & state)
 {
-   Application::HandleInputs (app, *keyboard_handler);
+   app.HandleInputs (*keyboard_handler);
 }

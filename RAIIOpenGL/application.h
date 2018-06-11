@@ -5,6 +5,9 @@
 //forward declarations
 class Renderer;
 class InputHandler;
+class ApplicationInputHandler;
+class State;
+class KeyboardHandler;
 
 //definitions
 class Application
@@ -22,12 +25,13 @@ public:
    void Init ();
    void Run ();
    void Exit ();
-   static void HandleInputs (Application& app, KeyboardHandler& keyboard_handler);
+   void HandleInputs (const KeyboardHandler& keyboard_handler);
 
 private:
    GLFWwindow * window = nullptr;
    std::unique_ptr<Renderer> renderer = nullptr;
    std::unique_ptr<State> state = nullptr;
    std::unique_ptr<InputHandler> input_handler = nullptr;
+   std::unique_ptr<ApplicationInputHandler> app_input_handler = nullptr;
 
 };
